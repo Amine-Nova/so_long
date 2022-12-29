@@ -6,13 +6,13 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:23:29 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/29 14:21:04 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/29 20:03:23 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int my_check4(char **s)
+void my_check4(char **s)
 {
     struct v d;
         d.l = 0;
@@ -39,6 +39,5 @@ int my_check4(char **s)
         d.i++;
     }
     if (d.l < 1)
-        return(printf("%d", 80));
-    return(0);
+        exit(1);
 }

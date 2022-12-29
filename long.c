@@ -6,12 +6,12 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/29 14:14:23 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/29 20:13:05 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-int my_check(char **s)
+void my_check(char **s)
 {
     struct v a;
         a.l = -1;
@@ -29,7 +29,7 @@ int my_check(char **s)
             if(s[a.i][a.j] == '1')
                 a.j++;
             else
-                return(printf("%d", 5));
+                exit(1);;
         }
         a.i++;
         while(a.i > 0 && a.i < a.l)
@@ -37,12 +37,11 @@ int my_check(char **s)
             if(s[a.i][0] == '1' && s[a.i][a.len - 1] == '1')
                 a.i++;
             else
-                return(printf("%d", 6));
+                exit(1);;
         }
     }
-    return 0;
 }
-int my_check2(char **s)
+void my_check2(char **s)
 {
     struct v b;
         b.l = 0;
@@ -69,11 +68,10 @@ int my_check2(char **s)
         b.i++;
     }
     if (b.l != 1)
-        return(printf("%d", 7));
-    return(0);
+        exit(1);
 }
 
-int my_check3(char **s)
+void my_check3(char **s)
 {
     struct v c;
         c.l = 0;
@@ -100,11 +98,10 @@ int my_check3(char **s)
         c.i++;
     }
     if (c.l != 1)
-        return(printf("%d", 8));
-    return(0);
+        exit(1);
 }
 
-int main()
+void map_check()
 {
     char *maj;
     char **maji;
@@ -112,9 +109,9 @@ int main()
     int i;
     int fd = open("map.ber", O_RDONLY);
     line = get_next_line(fd);
-    while (line) 
+    while(line) 
     {
-        maj = ft_strjoin(maj, line);
+        maj = my_strjoin(maj, line);
         line = get_next_line(fd);
     }
     maji = ft_split(maj, '\n');
