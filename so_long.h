@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/25 17:01:53 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/28 15:13:31 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 #  define BUFFER_SIZE 4
 
 # endif
+struct v
+{
+	int l;
+	int i;
+	int j;
+	int len;
+	int u;
+};
 
 # include <stdio.h>
 # include <stdlib.h>

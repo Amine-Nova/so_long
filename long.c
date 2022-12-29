@@ -6,46 +6,77 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/26 22:48:17 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/28 15:31:44 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 int my_check(char **s)
 {
-    int i;
-    int j;
-    int len;
-    int l;
-
-    l = -1;
-    i = 0;
-    j = 0;
-    while (s[i++])
-        l++;
-    i = 0;
-    len = ft_strlen(s[j]);
-    while(s[i])
+    struct v a;
     {
-        if(i == 0 || i == l)
+        a.l = -1;
+        a.i = 0;
+        a.j = 0;
+        a.len = ft_strlen(s[a.j]);
+    }
+    while (s[a.i++])
+        a.l++;
+    a.i = 0;
+    while(s[a.i])
+    {
+        a.j = 0;
+        while((a.i == 0 || a.i == a.l) && a.j < a.len)
         {
-            while(s[i][j])
-            {
-                if(s[i][j] == '1')
-                    j++;
-                else
-                    return(printf("%d", 1));
+            if(s[a.i][a.j] == '1')
+                a.j++;
+            else
+                return(printf("%d", 5));
+        }
+        a.i++;
+        while(a.i > 0 && a.i < a.l)
+        {
+            if(s[a.i][0] == '1' && s[a.i][a.len - 1] == '1')
+                a.i++;
+            else
+                return(printf("%d", 6));
+        }
+    }
+    return 0;
+}
+int my_check2(char **s)
+{
+    struct v b;
+    {
+        b.l = 0;
+        b.i = 1;
+        b.j = 1;
+        b.len = ft_strlen(s[b.j]);
+        b.u = 0;
+    }
+    while (s[b.i++])
+        b.u++;
+    b.i = 1;
+    while(b.i < b.u)
+    {
+        while(b.i < b.u && b.j < b.len)
+        {
+            if(s[b.i][b.j] != 'E')
+                b.j++;
+            if(s[b.i][b.j] == 'E')
+            {    
+                b.l++;
+                b.j++;
             }
         }
-        i++;
-        // if(i > 0 && i < l)
-        // {
-        //     if(s[i][0] != '1' || s[i][len] != '1')
-        //         return(printf("%d", 2));
-        // }
+        b.j = 1;
+        b.i++;
     }
-    return(printf("%d", 3));
+    if (b.l != 1)
+        return(printf("%d", 7));
+    return(0);
 }
+
 int main()
 {
     char *maj;
@@ -61,4 +92,5 @@ int main()
     }
     maji = ft_split(maj, '\n');
     my_check(maji);
+    my_check2(maji);
 }
