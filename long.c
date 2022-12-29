@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/28 15:31:44 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:14:23 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 int my_check(char **s)
 {
     struct v a;
-    {
         a.l = -1;
         a.i = 0;
         a.j = 0;
         a.len = ft_strlen(s[a.j]);
-    }
     while (s[a.i++])
         a.l++;
     a.i = 0;
@@ -47,13 +45,11 @@ int my_check(char **s)
 int my_check2(char **s)
 {
     struct v b;
-    {
         b.l = 0;
         b.i = 1;
         b.j = 1;
         b.len = ft_strlen(s[b.j]);
         b.u = 0;
-    }
     while (s[b.i++])
         b.u++;
     b.i = 1;
@@ -77,6 +73,37 @@ int my_check2(char **s)
     return(0);
 }
 
+int my_check3(char **s)
+{
+    struct v c;
+        c.l = 0;
+        c.i = 1;
+        c.j = 1;
+        c.len = ft_strlen(s[c.j]);
+        c.u = 0;
+    while (s[c.i++])
+        c.u++;
+    c.i = 1;
+    while(c.i < c.u)
+    {
+        while(c.i < c.u && c.j < c.len)
+        {
+            if(s[c.i][c.j] != 'P')
+                c.j++;
+            if(s[c.i][c.j] == 'P')
+            {    
+                c.l++;
+                c.j++;
+            }
+        }
+        c.j = 1;
+        c.i++;
+    }
+    if (c.l != 1)
+        return(printf("%d", 8));
+    return(0);
+}
+
 int main()
 {
     char *maj;
@@ -93,4 +120,6 @@ int main()
     maji = ft_split(maj, '\n');
     my_check(maji);
     my_check2(maji);
+    my_check3(maji);
+    my_check4(maji);
 }

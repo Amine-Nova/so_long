@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/28 15:13:31 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:18:05 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,12 @@ struct v
 # include <mlx.h>
 #include"libft.h"
 #include"get_next_line.h"
+
+int my_check(char **s);
+int my_check1(char **s);
+int my_check2(char **s);
+int my_check3(char **s);
+int my_check4(char **s);
+
 
 #endif
