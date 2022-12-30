@@ -27,6 +27,8 @@ void    window_set(t_data *data)
     data->img = mlx_xpm_file_to_image(data->mlx, "peakpx.xpm", &data->w, &data->h);
     data->img1 = mlx_xpm_file_to_image(data->mlx, "snow01-_1_.xpm", &data->w, &data->h);
     data->img2 = mlx_xpm_file_to_image(data->mlx, "4a6c064c30d2346481000e1cf07ce952-_2_.xpm", &data->w, &data->h);
+    data->img3 = mlx_xpm_file_to_image(data->mlx, "marijuana-removebg-preview-_1_.xpm", &data->w, &data->h);
+    data->img4 = mlx_xpm_file_to_image(data->mlx, "25683781-removebg-preview__1___1_-removebg-preview.xpm", &data->w, &data->h);
     data->i = 0;
     data->j = 0;
     while(data->str[data->i])
@@ -64,7 +66,7 @@ void    window_set(t_data *data)
     }
     data->i = 0;
     data->j = 0;
-     while(data->str[data->i])
+    while(data->str[data->i])
     {
         data->j = 0;
         while(data->str[data->i][data->j])
@@ -72,6 +74,40 @@ void    window_set(t_data *data)
             if(data->str[data->i][data->j] == 'P')
             {
                 mlx_put_image_to_window(data->mlx, data->mlx_win, data->img2, data->j * 50, data->i * 50);
+                data->j++;
+            }
+            else
+                data->j++;
+        }
+        data->i++;
+    }
+    data->i = 0;
+    data->j = 0;
+    while(data->str[data->i])
+    {
+        data->j = 0;
+        while(data->str[data->i][data->j])
+        {
+            if(data->str[data->i][data->j] == 'C')
+            {
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img3, data->j * 50, data->i * 50);
+                data->j++;
+            }
+            else
+                data->j++;
+        }
+        data->i++;
+    }
+    data->i = 0;
+    data->j = 0;
+    while(data->str[data->i])
+    {
+        data->j = 0;
+        while(data->str[data->i][data->j])
+        {
+            if(data->str[data->i][data->j] == 'E')
+            {
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img4, data->j * 50, data->i * 50);
                 data->j++;
             }
             else

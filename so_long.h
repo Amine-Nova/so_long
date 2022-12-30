@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/30 15:51:56 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/30 22:13:34 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct
 	void *img;
 	void *img1;
 	void *img2;
+	void *img3;
+	void *img4;
 }		t_data;
 
 # include <stdio.h>
