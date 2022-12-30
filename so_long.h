@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/29 20:07:33 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:51:56 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,16 @@ struct v
 
 typedef struct
 {
+	char **str;
+	int i;
+	int j;
 	int w;
 	int h;
 	void *mlx;
 	void *mlx_win;
 	void *img;
+	void *img1;
+	void *img2;
 }		t_data;
 
 # include <stdio.h>
@@ -48,7 +53,7 @@ void my_check1(char **s);
 void my_check2(char **s);
 void my_check3(char **s);
 void my_check4(char **s);
-void map_check();
+char**map_check();
 void window_set(t_data *data);
 
 

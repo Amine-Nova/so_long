@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/29 20:13:05 by abenmous         ###   ########.fr       */
+/*   Updated: 2022/12/30 12:10:39 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,12 @@ void my_check3(char **s)
         exit(1);
 }
 
-void map_check()
+char    **map_check()
 {
     char *maj;
     char **maji;
     char *line;
-    int i;
+    maj = NULL;
     int fd = open("map.ber", O_RDONLY);
     line = get_next_line(fd);
     while(line) 
@@ -119,4 +119,5 @@ void map_check()
     my_check2(maji);
     my_check3(maji);
     my_check4(maji);
+    return(maji);
 }
