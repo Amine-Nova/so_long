@@ -26,101 +26,38 @@ void    window_set(t_data *data)
     data->mlx_win = mlx_new_window(data->mlx, data->w, data->h, "a feeen adataat");
     data->img = mlx_xpm_file_to_image(data->mlx, "peakpx.xpm", &data->w, &data->h);
     data->img1 = mlx_xpm_file_to_image(data->mlx, "snow01-_1_.xpm", &data->w, &data->h);
-    data->img2 = mlx_xpm_file_to_image(data->mlx, "4a6c064c30d2346481000e1cf07ce952-_2_.xpm", &data->w, &data->h);
-    data->img3 = mlx_xpm_file_to_image(data->mlx, "marijuana-removebg-preview-_1_.xpm", &data->w, &data->h);
-    data->img4 = mlx_xpm_file_to_image(data->mlx, "25683781-removebg-preview__1___1_-removebg-preview.xpm", &data->w, &data->h);
-    data->i = 0;
-    data->j = 0;
-    while(data->str[data->i])
-    {
-        data->j = 0;
-        while(data->str[data->i][data->j])
-        {
-            if(data->str[data->i][data->j] == '1')
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, data->j * 50, data->i * 50);
-                data->j++;
-            }
-            else
-                data->j++;
-        }
-        data->i++;
-    }
-    data->i = 0;
-    data->j = 0;
-     while(data->str[data->i])
-    {
-        data->j = 0;
-        while(data->str[data->i][data->j])
-        {
-            if(data->str[data->i][data->j] == '0' || data->str[data->i][data->j] == 'P' 
-            || data->str[data->i][data->j] == 'C'  || data->str[data->i][data->j] == 'E')
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img1, data->j * 50, data->i * 50);
-                data->j++;
-            }
-            else
-                data->j++;
-        }
-        data->i++;
-    }
-    data->i = 0;
-    data->j = 0;
-    while(data->str[data->i])
-    {
-        data->j = 0;
-        while(data->str[data->i][data->j])
-        {
-            if(data->str[data->i][data->j] == 'P')
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img2, data->j * 50, data->i * 50);
-                data->j++;
-            }
-            else
-                data->j++;
-        }
-        data->i++;
-    }
-    data->i = 0;
-    data->j = 0;
-    while(data->str[data->i])
-    {
-        data->j = 0;
-        while(data->str[data->i][data->j])
-        {
-            if(data->str[data->i][data->j] == 'C')
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img3, data->j * 50, data->i * 50);
-                data->j++;
-            }
-            else
-                data->j++;
-        }
-        data->i++;
-    }
-    data->i = 0;
-    data->j = 0;
-    while(data->str[data->i])
-    {
-        data->j = 0;
-        while(data->str[data->i][data->j])
-        {
-            if(data->str[data->i][data->j] == 'E')
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img4, data->j * 50, data->i * 50);
-                data->j++;
-            }
-            else
-                data->j++;
-        }
-        data->i++;
-    }
+    data->img2 = mlx_xpm_file_to_image(data->mlx, "X-Men-Character-Set-02-_1_-removebg-preview.xpm", &data->w, &data->h);
+    data->img3 = mlx_xpm_file_to_image(data->mlx, "snow01-_1_-_1_.xpm", &data->w, &data->h);
+    data->img4 = mlx_xpm_file_to_image(data->mlx, "snow01-_1_-overlay.xpm", &data->w, &data->h);
+    put_image1(data->mlx, data->mlx_win, data->img);
+    put_image0(data->mlx, data->mlx_win, data->img1);
+    put_image2(data->mlx, data->mlx_win, data->img2);
+    put_image3(data->mlx, data->mlx_win, data->img3);
+    put_image4(data->mlx, data->mlx_win, data->img4);
 }
-
-int main()
+char    **map_check()
 {
-    t_data data;
-    map_check();
-    window_set(&data);
-    mlx_loop(data.mlx);
+    char *maj;
+    char **maji;
+    char *line;
+    int i;
+    int j;
+    int fd;
+
+    maj = NULL;
+    fd = open("map.ber", O_RDONLY);
+    line = get_next_line(fd);
+    while(line) 
+    {
+        maj = my_strjoin(maj, line);
+        line = get_next_line(fd);
+    }
+    maji = ft_split(maj, '\n');
+    j = 0;
+    i = ft_strlen(maji[j]);
+    my_check(maji, i);
+    my_check2(maji, i);
+    my_check3(maji, i);
+    my_check4(maji, i);
+    return(maji);
 }
