@@ -6,128 +6,113 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:39:18 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/07 20:06:00 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/09 00:34:43 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
 
-void put_image1(void *mlx, void *mlx_win, void *img)
+void put_image1(t_data *data)
 {
-    t_data *data1;
-    data1 = malloc(sizeof(t_data));
-    data1->str = map_check();
-    data1->i = 0;
-    data1->j = 0;
-    while(data1->str[data1->i])
+    data->i = 0;
+    data->j = 0;
+    while(data->str[data->i])
     {
-        data1->j = 0;
-        while(data1->str[data1->i][data1->j])
+        data->j = 0;
+        while(data->str[data->i][data->j])
         {
-            if(data1->str[data1->i][data1->j] == '1')
+            if(data->str[data->i][data->j] == '1')
             {
-                mlx_put_image_to_window(mlx, mlx_win, img, data1->j * 50, data1->i * 50);
-                data1->j++;
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, data->j * 50, data->i * 50);
+                data->j++;
             }
             else
-                data1->j++;
+                data->j++;
         }
-        data1->i++;
+        data->i++;
     }
 }
 
-void put_image0(void *mlx, void *mlx_win, void *img)
+void put_image0(t_data *data)
 {
-    t_data *data0;
-    data0 = malloc(sizeof(t_data));
-    data0->str = map_check();
-    data0->i = 0;
-    data0->j = 0;
-    while(data0->str[data0->i])
+    data->i = 0;
+    data->j = 0;
+    while(data->str[data->i])
     {
-        data0->j = 0;
-        while(data0->str[data0->i][data0->j])
+        data->j = 0;
+        while(data->str[data->i][data->j])
         {
-            if(data0->str[data0->i][data0->j] == '0' || data0->str[data0->i][data0->j] == 'C'  
-            || data0->str[data0->i][data0->j] == 'E')
+            if(data->str[data->i][data->j] == '0')
             {
-                mlx_put_image_to_window(mlx, mlx_win, img, data0->j * 50, data0->i * 50);
-                data0->j++;
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img1, data->j * 50, data->i * 50);
+                data->j++;
             }
             else
-                data0->j++;
+                data->j++;
         }
-        data0->i++;
+        data->i++;
     }
 }
 
-void put_image2(void *mlx, void *mlx_win, void *img)
+void put_image2(t_data *data)
 {
-    t_data *data2;
-    data2 = malloc(sizeof(t_data));
-    data2->str = map_check();
-    data2->i = 0;
-    data2->j = 0;
-    while(data2->str[data2->i])
+
+    data->i = 0;
+    data->j = 0;
+    while(data->str[data->i])
     {
-        data2->j = 0;
-        while(data2->str[data2->i][data2->j])
+        data->j = 0;
+        while(data->str[data->i][data->j])
         {
-            if(data2->str[data2->i][data2->j] == 'P')
+            if(data->str[data->i][data->j] == 'P')
             {
-                mlx_put_image_to_window(mlx, mlx_win, img, data2->j * 50, data2->i * 50);
-                data2->j++;
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img2, data->j * 50, data->i * 50);
+                data->j++;
             }
             else
-                data2->j++;
+                data->j++;
         }
-        data2->i++;
+        data->i++;
     }
 }
 
-void put_image3(void *mlx, void *mlx_win, void *img)
+void put_image3(t_data *data)
 {
-    t_data *data3;
-    data3 = malloc(sizeof(t_data));
-    data3->str = map_check();
-    data3->i = 0;
-    data3->j = 0;
-    while(data3->str[data3->i])
+    data->i = 0;
+    data->j = 0;
+    while(data->str[data->i])
     {
-        data3->j = 0;
-        while(data3->str[data3->i][data3->j])
+        data->j = 0;
+        while(data->str[data->i][data->j])
         {
-            if(data3->str[data3->i][data3->j] == 'C')
+            if(data->str[data->i][data->j] == 'C')
             {
-                mlx_put_image_to_window(mlx, mlx_win, img, data3->j * 50, data3->i * 50);
-                data3->j++;
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img3, data->j * 50, data->i * 50);
+                data->j++;
             }
             else
-                data3->j++;
+                data->j++;
         }
-        data3->i++;
+        data->i++;
     }
 }
-void put_image4(void *mlx, void *mlx_win, void *img)
+void put_image4(t_data *data)
 {
-    t_data *data4;
-    data4 = malloc(sizeof(t_data));
-    data4->str = map_check();
-    data4->i = 0;
-    data4->j = 0;
-    while(data4->str[data4->i])
+    data->i = 0;
+    data->j = 0;
+    while(data->str[data->i])
     {
-        data4->j = 0;
-        while(data4->str[data4->i][data4->j])
+        data->j = 0;
+        while(data->str[data->i][data->j])
         {
-            if(data4->str[data4->i][data4->j] == 'E')
+            if(data->str[data->i][data->j] == 'E')
             {
-                mlx_put_image_to_window(mlx, mlx_win, img, data4->j * 50, data4->i * 50);
-                data4->j++;
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->img4, data->j * 50, data->i * 50);
+                data->j++;
             }
             else
-                data4->j++;
+                data->j++;
         }
-        data4->i++;
+        data->i++;
     }
 }
