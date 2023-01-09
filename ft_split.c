@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenmous <abenmous@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:20:06 by abenmous          #+#    #+#             */
-/*   Updated: 2022/10/17 16:29:04 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:46:31 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
 static int	word_count(char const *s, char c)
 {

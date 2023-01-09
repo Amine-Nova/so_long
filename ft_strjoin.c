@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenmous <abenmous@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:37:17 by abenmous          #+#    #+#             */
-/*   Updated: 2022/10/10 16:52:21 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:28:08 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "so_long.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

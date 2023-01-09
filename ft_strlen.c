@@ -6,11 +6,11 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:14:33 by abenmous          #+#    #+#             */
-/*   Updated: 2022/10/20 18:09:57 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:28:13 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "so_long.h"
 
 size_t	ft_strlen(const char *s)
 {

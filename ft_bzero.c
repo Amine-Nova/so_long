@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenmous <abenmous@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:53:38 by abenmous          #+#    #+#             */
-/*   Updated: 2022/10/02 16:40:20 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:27:26 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+
+#include "so_long.h"
 
 void	ft_bzero(void *s, size_t n)
 {

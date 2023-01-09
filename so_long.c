@@ -33,29 +33,37 @@ void    window_set(t_data *data)
     put_image2(data);
     put_image3(data);
     put_image4(data);
+    
+    
 }
 void    map_check(t_data *data)
 {
-    char *maj;
-    char **maji;
+    char *str;
     char *line;
     int fd;
     int i;
     int j;
-    maj = NULL;
+    str = NULL;
     fd = open("map.ber", O_RDONLY);
     line = get_next_line(fd);
     while(line) 
     {
-        maj = my_strjoin(maj, line);
+        str = my_strjoin(str, line);
         line = get_next_line(fd);
     }
-    maji = ft_split(maj, '\n');
+    data->str = ft_split(str, '\n');
     j = 0;
-    i = ft_strlen(maji[j]);
-    data->str = maji;
-    my_check(maji, i);
-    my_check2(maji, i);
-    my_check3(maji, i);
-    my_check4(maji, i);
+    i = ft_strlen(data->str[j]);
+    my_check(data->str, i);
+    my_check2(data->str, i);
+    my_check3(data->str, i);
+    my_check4(data->str, i);
+}
+
+int main()
+{
+    t_data data;
+    map_check(&data);
+    window_set(&data);
+    mlx_loop(data.mlx);
 }

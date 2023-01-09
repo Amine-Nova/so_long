@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/09 00:35:33 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:39:39 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ struct v
 	int u;
 };
 
-typedef struct
+typedef struct s_data
 {
 	char **str;
 	int i;
@@ -47,8 +47,6 @@ typedef struct
 # include <unistd.h>
 # include <fcntl.h>
 # include <mlx.h>
-#include"libft.h"
-#include"get_next_line.h"
 
 void	my_check(char **s, int len);
 void	my_check1(char **s, int len);
@@ -62,6 +60,18 @@ void	put_image2(t_data *data);
 void	put_image3(t_data *data);
 void	put_image4(t_data *data);
 void	window_set(t_data *data);
-
+void	ft_putchar(int c);
+int 	move_player(int key_code, t_data *data);
+char	*get_next_line(int fd);
+char	*my_strjoin(char *str1, char *str2);
+void	*my_calloc(size_t count, size_t size);
+char	**ft_split(char const *s, char c);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*my_strchr(char *s, int c);
+char	*my_strdup(char *src1);
+size_t	my_strlen(char *s);
+size_t	ft_strlen(const char *s);
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif

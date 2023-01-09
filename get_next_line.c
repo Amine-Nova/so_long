@@ -6,11 +6,11 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:13:09 by abenmous          #+#    #+#             */
-/*   Updated: 2022/12/25 17:06:08 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:28:46 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"get_next_line.h"
+#include "so_long.h"
 
 char	*ft_read(int fd, char *line)
 {
