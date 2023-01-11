@@ -6,11 +6,16 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/09 00:20:21 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/11 20:30:43 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void write_error()
+{
+        write(1, "Error\n", 6);
+}
 
 void my_check(char **s, int len)
 {
@@ -18,7 +23,6 @@ void my_check(char **s, int len)
         a.l = -1;
         a.i = 0;
         a.j = 0;
-        a.len = ft_strlen(s[a.j]);
     while (s[a.i++])
         a.l++;
     a.i = 0;
@@ -30,7 +34,10 @@ void my_check(char **s, int len)
             if(s[a.i][a.j] == '1')
                 a.j++;
             else
+            {
+                write_error();
                 exit(1);
+            }
         }
         a.i++;
         while(a.i > 0 && a.i < a.l)
@@ -38,85 +45,97 @@ void my_check(char **s, int len)
             if(s[a.i][0] == '1' && s[a.i][len - 1] == '1')
                 a.i++;
             else
+            {
+                write_error();
                 exit(1);
+            }
         }
     }
 }
 
 void my_check2(char **s, int len)
 {
-    struct v b;
-        b.l = 0;
-        b.i = 1;
-        b.j = 1;
-        b.u = 0;
-    while (s[b.i++])
-        b.u++;
-    b.i = 1;
-    while(b.i < b.u)
+    struct v a;
+        a.l = 0;
+        a.i = 1;
+        a.j = 1;
+        a.u = 0;
+    while (s[a.i++])
+        a.u++;
+    a.i = 1;
+    while(a.i < a.u)
     {
-        while(b.i < b.u && b.j < len)
+        while(a.i < a.u && a.j < len)
         {
-            if(s[b.i][b.j] != 'E')
-                b.j++;
-            if(s[b.i][b.j++] == 'E')
-                b.l++;
+            if(s[a.i][a.j] != 'E')
+                a.j++;
+            if(s[a.i][a.j++] == 'E')
+                a.l++;
         }
-        b.j = 1;
-        b.i++;
+        a.j = 1;
+        a.i++;
     }
-    if (b.l != 1)
+    if (a.l != 1)
+    {
+        write_error();
         exit(1);
+    }
 }
 
 void my_check3(char **s, int len)
 {
-    struct v c;
-        c.l = 0;
-        c.i = 1;
-        c.j = 1;
-        c.u = 0;
-    while (s[c.i++])
-        c.u++;
-    c.i = 1;
-    while(c.i < c.u)
+    struct v a;
+        a.l = 0;
+        a.i = 1;
+        a.j = 1;
+        a.u = 0;
+    while (s[a.i++])
+        a.u++;
+    a.i = 1;
+    while(a.i < a.u)
     {
-        while(c.i < c.u && c.j < len)
+        while(a.i < a.u && a.j < len)
         {
-            if(s[c.i][c.j] != 'P')
-                c.j++;
-            if(s[c.i][c.j++] == 'P')   
-                c.l++;
+            if(s[a.i][a.j] != 'P')
+                a.j++;
+            if(s[a.i][a.j++] == 'P')   
+                a.l++;
         }
-        c.j = 1;
-        c.i++;
+        a.j = 1;
+        a.i++;
     }
-    if (c.l != 1)
+    if (a.l != 1)
+    {
+        write_error();
         exit(1);
+    }
 }
 
 void my_check4(char **s, int len)
 {
-    struct v d;
-        d.l = 0;
-        d.i = 1;
-        d.j = 1;
-        d.u = 0;
-    while (s[d.i++])
-        d.u++;
-    d.i = 1;
-    while(d.i < d.u)
+    struct v a;
+        a.l = 0;
+        a.i = 1;
+        a.j = 1;
+        a.u = 0;
+    while (s[a.i++])
+        a.u++;
+    a.i = 1;
+    while(a.i < a.u)
     {
-        while(d.i < d.u && d.j < len)
+        while(a.i < a.u && a.j < len)
         {
-            if(s[d.i][d.j] != 'C')
-                d.j++;
-            if(s[d.i][d.j++] == 'C') 
-                d.l++;
+            if(s[a.i][a.j] != 'C')
+                a.j++;
+            if(s[a.i][a.j++] == 'C') 
+                a.l++;
         }
-        d.j = 1;
-        d.i++;
+        a.j = 1;
+        a.i++;
     }
-    if (d.l < 1)
+    if (a.l < 1)
+    {
+        write_error();
         exit(1);
+    }
 }

@@ -12,31 +12,87 @@
 
 #include "so_long.h"
 
-void    window_set(t_data *data)
+void coin_count(t_data *data)
 {
-    data->i = 0;
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    data->c = 0;
+    while(data->str[i])
+    {
+        j = 0;
+        while(data->str[i][j])
+        {
+            if(data->str[i][j] == 'C')
+                data->c++;
+            j++;
+        }
+        i++;
+    }
+}
+void get_player_pos(t_data *data)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (data->str[i])
+    {
+        j = 0;
+        while (data->str[i][j])
+        {
+            if (data->str[i][j] == 'P')
+            {
+                data->player_x = i;
+                data->player_y = j;
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void get_coin_pos(t_data *data)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (data->str[i])
+    {
+        j = 0;
+        while (data->str[i][j])
+        {
+            if (data->str[i][j] == 'E')
+            {
+                data->exit_x = i;
+                data->exit_y = j;
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+
+void    win_init(t_data *data)
+{
     data->j = 0;
-    data->w = ft_strlen(data->str[data->i]) * 50;
+    data->w = ft_strlen(data->str[0]) * 50;
     data->h = 0;
     while(data->str[data->j++])
         data->h++;
     data->h = data->h * 50;
     data->mlx = mlx_init();
     data->mlx_win = mlx_new_window(data->mlx, data->w, data->h, "a feeen adataat");
-    data->img = mlx_xpm_file_to_image(data->mlx, "peakpx.xpm", &data->w, &data->h);
-    data->img1 = mlx_xpm_file_to_image(data->mlx, "snow01-_1_.xpm", &data->w, &data->h);
-    data->img2 = mlx_xpm_file_to_image(data->mlx, "X-Men-Character-Set-02-_1_-removebg-preview.xpm", &data->w, &data->h);
-    data->img3 = mlx_xpm_file_to_image(data->mlx, "snow01-_1_-_1_.xpm", &data->w, &data->h);
-    data->img4 = mlx_xpm_file_to_image(data->mlx, "snow01-_1_-overlay.xpm", &data->w, &data->h);
-    put_image1(data);
-    put_image0(data);
-    put_image2(data);
-    put_image3(data);
-    put_image4(data);
-    
-    
+    get_player_pos(data);
+    img_set(data);
+    img_put(data);
 }
-void    map_check(t_data *data)
+
+void    map_check(t_data *data, char *map)
 {
     char *str;
     char *line;
@@ -44,7 +100,7 @@ void    map_check(t_data *data)
     int i;
     int j;
     str = NULL;
-    fd = open("map.ber", O_RDONLY);
+    fd = open(map, O_RDONLY);
     line = get_next_line(fd);
     while(line) 
     {
@@ -60,10 +116,11 @@ void    map_check(t_data *data)
     my_check4(data->str, i);
 }
 
-int main()
+int main(int ac, char **av)
 {
     t_data data;
-    map_check(&data);
-    window_set(&data);
+    map_check(&data, av[1]);
+    win_init(&data);
+    mlx_key_hook(data.mlx_win, key_gen, &data);
     mlx_loop(data.mlx);
 }
