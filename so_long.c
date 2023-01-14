@@ -54,7 +54,7 @@ void get_player_pos(t_data *data)
     }
 }
 
-void get_coin_pos(t_data *data)
+void get_door_pos(t_data *data)
 {
     int i;
     int j;
@@ -102,7 +102,7 @@ void    map_check(t_data *data, char *map)
     str = NULL;
     fd = open(map, O_RDONLY);
     line = get_next_line(fd);
-    while(line) 
+    while(line)
     {
         str = my_strjoin(str, line);
         line = get_next_line(fd);
@@ -120,6 +120,7 @@ int main(int ac, char **av)
 {
     t_data data;
     map_check(&data, av[1]);
+    put_map(av[1]);
     win_init(&data);
     mlx_key_hook(data.mlx_win, key_gen, &data);
     mlx_loop(data.mlx);

@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/12 00:40:26 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:50:29 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ struct v
 	int u;
 	char *str;
 };
+
+typedef struct p_data
+{
+	char **ptr;
+	char *str;
+	int player2_x;
+	int player2_y;
+    char *line;
+    int fd;
+    int i;
+    int j;
+}	h_data;
 
 typedef struct s_data
 {
@@ -89,7 +101,19 @@ void	move_player1(t_data *data);
 void	move_player2(t_data *data);
 void	move_player3(t_data *data);
 void	coin_count(t_data *data);
-void	get_coin_pos(t_data *data);
+void	get_door_pos(t_data *data);
 void	door_set(t_data *data);
+void	change_door(t_data *data);
+void	put_map(char *map);
+void	player_pos2(h_data *data);
+void	check_right(h_data *data);
+void	path_set(h_data *data);
+void	path_set1(h_data *data);
+void	path_set2(h_data *data);
+void	path_final(h_data *data);
+void	path_final1(h_data *data);
+void	path_final2(h_data *data);
+void	path_final3(h_data *data);
+void	check_exit(h_data *data);
 
 #endif

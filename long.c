@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/11 20:30:43 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:35:39 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void write_error()
 {
-        write(1, "Error\n", 6);
+        write(2, "Error\n", 6);
 }
 
 void my_check(char **s, int len)

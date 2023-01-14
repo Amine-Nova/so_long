@@ -6,7 +6,7 @@
 #    By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 13:33:55 by abenmous          #+#    #+#              #
-#    Updated: 2023/01/11 20:17:43 by abenmous         ###   ########.fr        #
+#    Updated: 2023/01/13 18:26:29 by abenmous         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRCS =	ft_strjoin.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		player_move.c \
+		path_set.c \
+		path_final.c \
 		put_image.c
 		
 OBJ = $(SRCS:.c=.o)
