@@ -6,11 +6,11 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:47:14 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/09 14:28:43 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:56:17 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"get_next_line.h"
 
 void	*my_calloc(size_t count, size_t size)
 {

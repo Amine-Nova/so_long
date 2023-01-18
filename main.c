@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 11:37:17 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/09 14:28:08 by abenmous         ###   ########.fr       */
+/*   Created: 2023/01/15 18:00:44 by abenmous          #+#    #+#             */
+/*   Updated: 2023/01/17 21:19:35 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	main(int ac, char **av)
 {
-	size_t	i;
-	size_t	j;
-	char	*s3;
+	t_data	data;
 
-	if (!s1 || !s2)
-		return (0);
-	i = 0;
-	j = 0;
-	s3 = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!s3)
-		return (0);
-	while (s1[i])
-	{
-		s3[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		s3[i] = s2[j];
-		i++;
-		j++;
-	}
-	s3[i] = 0;
-	return (s3);
+	map_check(&data, av[1]);
+	put_map(av[1]);
+	win_init(&data);
+	mlx_key_hook(data.mlx_win, key_gen, &data);
+	mlx_loop(data.mlx);
 }

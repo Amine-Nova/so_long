@@ -6,11 +6,11 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:13:09 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/09 14:28:46 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:45:00 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"get_next_line.h"
 
 char	*ft_read(int fd, char *line)
 {
@@ -23,7 +23,7 @@ char	*ft_read(int fd, char *line)
 		i = read(fd, str, BUFFER_SIZE);
 		if (i == -1)
 		{
-			free(line);
+			free(str);
 			return (NULL);
 		}
 		if (i > 0)
