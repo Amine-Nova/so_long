@@ -6,16 +6,24 @@
 #    By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 13:33:55 by abenmous          #+#    #+#              #
-#    Updated: 2023/01/17 21:27:48 by abenmous         ###   ########.fr        #
+#    Updated: 2023/01/18 16:35:56 by abenmous         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= so_long
+NAME = so_long
 
-CC=	cc
+CC =	cc
 
 SRCS =	get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \
+		printf/ft_printf.c \
+		printf/ft_putchar.c \
+		printf/ft_putnbr_hex.c \
+		printf/ft_putnbr_hexu.c \
+		printf/ft_putnbr.c \
+		printf/ft_putnbr_un.c \
+		printf/ft_putnbr_p.c \
+		printf/ft_putstr.c \
 		ft_strlen.c \
 		ft_split.c \
 		maps_set.c \
@@ -41,9 +49,9 @@ $(NAME): $(OBJ)
 clean : 
 	rm -rf $(OBJ)
 
-fclean : clean
+l : clean
 	rm -rf $(NAME)
 	rm -rf *.gch
 
-re : fclean all
+re : l all
 

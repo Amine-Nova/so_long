@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 18:00:44 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/18 16:31:15 by abenmous         ###   ########.fr       */
+/*   Created: 2022/10/25 17:41:04 by abenmous          #+#    #+#             */
+/*   Updated: 2022/10/27 19:39:26 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_putnbr(int nb)
 {
-	t_data	data;
+	long	n;
+	int		i;
 
-	data.counter = 0;
-	map_check(&data, av[1]);
-	put_map(av[1]);
-	win_init(&data);
-	mlx_key_hook(data.mlx_win, key_gen, &data);
-	mlx_loop(data.mlx);
+	i = 0;
+	n = nb;
+	if (nb < 0)
+	{
+		i += ft_putchar('-');
+		n *= -1;
+	}
+	if (n < 10)
+	{
+		i += ft_putchar(n + 48);
+	}
+	else
+	{
+		i += ft_putnbr(n / 10);
+		i += ft_putnbr(n % 10);
+	}
+	return (i);
 }

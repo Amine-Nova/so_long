@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_hexu.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 18:00:44 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/18 16:31:15 by abenmous         ###   ########.fr       */
+/*   Created: 2022/10/26 19:41:13 by abenmous          #+#    #+#             */
+/*   Updated: 2022/10/27 18:29:43 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_putnbr_hexu(unsigned int i)
 {
-	t_data	data;
+	char	*str;
+	int		j;
 
-	data.counter = 0;
-	map_check(&data, av[1]);
-	put_map(av[1]);
-	win_init(&data);
-	mlx_key_hook(data.mlx_win, key_gen, &data);
-	mlx_loop(data.mlx);
+	j = 0;
+	str = "0123456789ABCDEF";
+	if (j >= 0 && i < 16)
+	{
+		j += ft_putchar(str[i]);
+	}
+	else
+	{
+		j += ft_putnbr_hexu(i / 16);
+		j += ft_putnbr_hexu(i % 16);
+	}
+	return (j);
 }

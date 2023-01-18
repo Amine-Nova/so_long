@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 18:00:44 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/18 16:31:15 by abenmous         ###   ########.fr       */
+/*   Created: 2022/10/25 18:23:14 by abenmous          #+#    #+#             */
+/*   Updated: 2022/10/27 11:16:52 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_putchar(char c)
 {
-	t_data	data;
-
-	data.counter = 0;
-	map_check(&data, av[1]);
-	put_map(av[1]);
-	win_init(&data);
-	mlx_key_hook(data.mlx_win, key_gen, &data);
-	mlx_loop(data.mlx);
+	write(1, &c, 1);
+	return (1);
 }

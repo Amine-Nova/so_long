@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:39:44 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/17 21:33:58 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:54:19 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,16 @@ void	check_other(t_data *data)
 			j++;
 		}
 		i++;
+	}
+}
+
+void	change_door(t_data *data)
+{
+	coin_count(data);
+	if (data->c == 0)
+	{
+		data->img4 = mlx_xpm_file_to_image
+			(data->mlx, "images/open_door.xpm", &data->w, &data->h);
+		img_put(data);
 	}
 }

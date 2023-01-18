@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/17 21:34:11 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:45:26 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <mlx.h>
+# include "printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
 
 struct	s_v
@@ -59,6 +60,7 @@ typedef struct s_data
 	int		i;
 	int		j;
 	int		c;
+	int		counter;
 	void	*mlx;
 	void	*mlx_win;
 	void	*img;

@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:07:53 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/17 15:47:27 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:32:29 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	key_gen(int keycode, t_data *data)
 {
-	int	i;
-
-	i = 0;
 	if (keycode == 124)
 		move_player2(data);
 	if (keycode == 53)
@@ -27,6 +24,7 @@ int	key_gen(int keycode, t_data *data)
 		move_player(data);
 	if (keycode == 126)
 		move_player1(data);
+	ft_printf("%d\n", data->counter);
 	return (0);
 }
 
