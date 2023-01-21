@@ -6,7 +6,7 @@
 #    By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 13:33:55 by abenmous          #+#    #+#              #
-#    Updated: 2023/01/18 16:35:56 by abenmous         ###   ########.fr        #
+#    Updated: 2023/01/21 18:53:07 by abenmous         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,9 @@ $(NAME): $(OBJ)
 clean : 
 	rm -rf $(OBJ)
 
-l : clean
+fclean : clean
 	rm -rf $(NAME)
 	rm -rf *.gch
 
-re : l all
+re : fclean all
 

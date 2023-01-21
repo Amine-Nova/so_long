@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:07:53 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/18 16:32:29 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 21:56:38 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,16 @@ int	key_gen(int keycode, t_data *data)
 	if (keycode == 124)
 		move_player2(data);
 	if (keycode == 53)
-		exit(0);
+	{
+		mlx_destroy_image(data->mlx, data->img);
+		mlx_destroy_image(data->mlx, data->img1);
+		mlx_destroy_image(data->mlx, data->img2);
+		mlx_destroy_image(data->mlx, data->img3);
+		mlx_destroy_image(data->mlx, data->img4);
+		mlx_destroy_window(data->mlx, data->mlx_win);
+		free(data->mlx);
+		exit(1);
+	}
 	if (keycode == 123)
 		move_player3(data);
 	if (keycode == 125)
@@ -31,15 +40,15 @@ int	key_gen(int keycode, t_data *data)
 void	img_set(t_data *data)
 {
 	data->img
-		= mlx_xpm_file_to_image(data->mlx, "images/1.xpm", &data->w, &data->h);
+		= mlx_xpm_file_to_image(data->mlx, "textures/1.xpm", &data->w, &data->h);
 	data->img1
-		= mlx_xpm_file_to_image(data->mlx, "images/0.xpm", &data->w, &data->h);
+		= mlx_xpm_file_to_image(data->mlx, "textures/0.xpm", &data->w, &data->h);
 	data->img2
-		= mlx_xpm_file_to_image(data->mlx, "images/PR.xpm", &data->w, &data->h);
+		= mlx_xpm_file_to_image(data->mlx, "textures/PR.xpm", &data->w, &data->h);
 	data->img3
-		= mlx_xpm_file_to_image(data->mlx, "images/C.xpm", &data->w, &data->h);
+		= mlx_xpm_file_to_image(data->mlx, "textures/C.xpm", &data->w, &data->h);
 	data->img4
-		= mlx_xpm_file_to_image(data->mlx, "images/E.xpm", &data->w, &data->h);
+		= mlx_xpm_file_to_image(data->mlx, "textures/E.xpm", &data->w, &data->h);
 }
 
 void	img_put(t_data *a)

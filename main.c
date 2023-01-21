@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:00:44 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/18 16:31:15 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 21:52:59 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	data.counter = 0;
+	if (ac != 2)
+		return (0);
 	map_check(&data, av[1]);
-	put_map(av[1]);
+	put_map(data.ptr);
 	win_init(&data);
 	mlx_key_hook(data.mlx_win, key_gen, &data);
 	mlx_loop(data.mlx);
+
 }

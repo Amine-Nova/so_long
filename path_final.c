@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 18:26:50 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/18 15:39:31 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 21:49:09 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	path_final(t_vdata *data)
 {
 	data->i = 1;
-	while (data->ptr[data->i + 1])
+	while (data->str[data->i + 1])
 	{
 		data->j = 1;
-		while (data->ptr[data->i][data->j])
+		while (data->str[data->i][data->j])
 		{
-			if (data->ptr[data->i][data->j] == '5'
-				&& data->ptr[data->i][data->j + 1] != '1')
-				data->ptr[data->i][data->j + 1] = '5';
-			if (data->ptr[data->i][data->j] == '5'
-				&& data->ptr[data->i + 1][data->j] != '1')
-				data->ptr[data->i + 1][data->j] = '5';
+			if (data->str[data->i][data->j] == '5'
+				&& data->str[data->i][data->j + 1] != '1')
+				data->str[data->i][data->j + 1] = '5';
+			if (data->str[data->i][data->j] == '5'
+				&& data->str[data->i + 1][data->j] != '1')
+				data->str[data->i + 1][data->j] = '5';
 			data->j++;
 		}
 	data->i++;
@@ -37,14 +37,14 @@ void	path_final(t_vdata *data)
 void	path_final1(t_vdata *data)
 {
 	data->i = 1;
-	while (data->ptr[data->i + 1])
+	while (data->str[data->i + 1])
 	{
-		data->j = ft_strlen(data->ptr[0]) - 1;
-		while (data->ptr[data->i][data->j])
+		data->j = ft_strlen(data->str[0]) - 1;
+		while (data->str[data->i][data->j])
 		{
-			if (data->ptr[data->i][data->j] == '5'
-				&& data->ptr[data->i][data->j - 1] != '1')
-				data->ptr[data->i][data->j - 1] = '5';
+			if (data->str[data->i][data->j] == '5'
+				&& data->str[data->i][data->j - 1] != '1')
+				data->str[data->i][data->j - 1] = '5';
 			data->j--;
 		}
 		data->i++;
@@ -56,17 +56,17 @@ void	path_final2(t_vdata *data)
 	int	k;
 
 	k = 0;
-	while (data->ptr[data->i++])
+	while (data->str[data->i++])
 		k++;
 	data->i = data->i - 2;
 	while (data-> i != 0)
 	{
 		data->j = 1;
-		while (data->ptr[data->i][data->j])
+		while (data->str[data->i][data->j])
 		{
-			if (data->ptr[data->i][data->j] == '5'
-				&& data->ptr[data->i - 1][data->j] != '1')
-				data->ptr[data->i - 1][data->j] = '5';
+			if (data->str[data->i][data->j] == '5'
+				&& data->str[data->i - 1][data->j] != '1')
+				data->str[data->i - 1][data->j] = '5';
 			data->j++;
 		}
 		data->i--;
@@ -79,19 +79,23 @@ void	check_exit(t_vdata *data)
 	int	j;
 
 	i = 0;
-	while (data->ptr[i])
+	while (data->str[i])
 	{
 		j = 0;
-		while (data->ptr[i][j])
+		while (data->str[i][j])
 		{
-			if (data->ptr[i][j] == 'E' || data->ptr[i][j] == 'C')
-				exit(1);
+			if (data->str[i][j] == 'E' || data->str[i][j] == 'C')
+			{
+				while (data->str[i])
+					free(data->str[i++]);
+				error_write1();
+			}
 			j++;
 		}
-		free(data->ptr[i]);
+		free(data->str[i]);
 		i++;
 	}
-	free(data->ptr);
+	free(data->str);
 }
 
 void	coin_count(t_data *data)

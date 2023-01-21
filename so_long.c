@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 23:59:47 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/18 16:24:10 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 21:56:51 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,47 +73,48 @@ void	win_init(t_data *data)
 
 void	map_check(t_data *data, char *map)
 {
-	char	*str;
-	char	*line;
-	int		fd;
-	int		i;
-	int		j;
-
-	str = NULL;
-	fd = open(map, O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
+	data->counter = 0;
+	data->n = 0;
+	data->str0 = NULL;
+	data->fd = open(map, O_RDONLY);
+	data->line = get_next_line(data->fd);
+	while (data->line)
 	{
-		str = my_strjoin(str, line);
-		free(line);
-		line = get_next_line(fd);
+		data->n++;
+		data->str0 = my_strjoin(data->str0, data->line);
+		free(data->line);
+		data->line = get_next_line(data->fd);
 	}
-	data->str = ft_split(str, '\n');
-	j = 0;
-	i = ft_strlen(data->str[j]);
-	free(str);
+	data->str = ft_split(data->str0, '\n');
+	data->ptr = ft_split(data->str0, '\n');
+	data->b = 0;
+	data->a = ft_strlen(data->str[data->b]);
 	check_other(data);
-	my_check(data->str, i);
-	my_check2(data->str, i);
-	my_check3(data->str, i);
-	my_check4(data->str, i);
-	check_square(data->str);
+	my_check(data->str, data->a);
+	my_check0(data->str, data->a);
+	my_check2(data->str, data->a);
+	my_check3(data->str, data->a);
+	my_check4(data->str, data->a);
+	check_square(data->str, data);
 }
 
-void	check_square(char **str)
+void	check_square(char **str, t_data *data)
 {
 	int	i;
-	int	j;
-	int	k;
 
-	i = 0;
-	while (str[i++])
-		j++;
 	i = 1;
 	while (str[i])
 	{
 		if (ft_strlen(str[0]) != ft_strlen(str[i]))
-			exit(1);
+		{
+			free_map(str);
+			error_write1();
+		}
 		i++;
+	}
+	if (data->n != i)
+	{
+		free_map(str);
+		error_write1();
 	}
 }

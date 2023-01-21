@@ -6,23 +6,11 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/17 21:25:28 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 17:13:31 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	wide_c(char **s)
-{
-	int	i;
-	int	l;
-
-	l = -1;
-	i = 0;
-	while (s[i++])
-		l++;
-	return (l);
-}
 
 void	my_check(char **s, int len)
 {
@@ -38,15 +26,29 @@ void	my_check(char **s, int len)
 			if (s[a.i][a.j] == '1')
 				a.j++;
 			else
-				error_write();
+			{
+				free_map(s);
+				error_write1();
+			}
 		}
 		a.i++;
-		while (a.i > 0 && a.i < a.l)
+	}
+}
+
+void	my_check0(char **s, int len)
+{
+	struct s_v	a;
+
+	a.l = wide_c(s);
+	a.i = 1;
+	while (s[a.i] && a.i > 0 && a.i < a.l)
+	{
+		if (s[a.i][0] == '1' && s[a.i][len - 1] == '1')
+			a.i++;
+		else
 		{
-			if (s[a.i][0] == '1' && s[a.i][len - 1] == '1')
-				a.i++;
-			else
-				error_write();
+			free_map(s);
+			error_write1();
 		}
 	}
 }
@@ -59,7 +61,6 @@ void	my_check2(char **s, int len)
 	a.i = 1;
 	a.j = 1;
 	a.u = wide_c(s);
-	a.i = 1;
 	while (a.i < a.u)
 	{
 		while (a.i < a.u && a.j < len)
@@ -73,7 +74,10 @@ void	my_check2(char **s, int len)
 		a.i++;
 	}
 	if (a.l != 1)
-		error_write();
+	{
+		free_map(s);
+		error_write1();
+	}
 }
 
 void	my_check3(char **s, int len)
@@ -84,7 +88,6 @@ void	my_check3(char **s, int len)
 		a.i = 1;
 		a.j = 1;
 		a.u = wide_c(s);
-	a.i = 1;
 	while (a.i < a.u)
 	{
 		while (a.i < a.u && a.j < len)
@@ -98,7 +101,10 @@ void	my_check3(char **s, int len)
 		a.i++;
 	}
 	if (a.l != 1)
-		error_write();
+	{
+		free_map(s);
+		error_write1();
+	}
 }
 
 void	my_check4(char **s, int len)
@@ -109,7 +115,6 @@ void	my_check4(char **s, int len)
 		a.i = 1;
 		a.j = 1;
 		a.u = wide_c(s);
-	a.i = 1;
 	while (a.i < a.u)
 	{
 		while (a.i < a.u && a.j < len)
@@ -123,5 +128,8 @@ void	my_check4(char **s, int len)
 		a.i++;
 	}
 	if (a.l < 1)
-		error_write();
+	{
+		free_map(s);
+		error_write1();
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/18 16:45:26 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 21:55:34 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ struct	s_v
 typedef struct p_data
 {
 	char	**ptr;
-	char	*str;
-	int		player2_x;
-	int		player2_y;
+	char	**str;
 	char	*line;
 	int		fd;
 	int		i;
-	int		j;
+	int		j;	
+	int		player2_x;
+	int		player2_y;
 }	t_vdata;
 
 typedef struct s_data
@@ -54,12 +54,19 @@ typedef struct s_data
 	int		player_y;
 	int		exit_x;
 	int		exit_y;
+	char	*line;
 	char	**str;
+	char	**ptr;
+	char	*str0;
 	int		h;
 	int		w;
 	int		i;
+	int		a;
+	int		b;
+	int		fd;
 	int		j;
 	int		c;
+	int		n;
 	int		counter;
 	void	*mlx;
 	void	*mlx_win;
@@ -68,9 +75,9 @@ typedef struct s_data
 	void	*img2;
 	void	*img3;
 	void	*img4;
-	void	*img5;
 }		t_data;
 
+void	my_check0(char **s, int len);
 void	my_check(char **s, int len);
 void	my_check2(char **s, int len);
 void	my_check3(char **s, int len);
@@ -83,7 +90,6 @@ void	*ft_calloc(size_t count, size_t size);
 void	img_put(t_data *data);
 void	img_set(t_data *data);
 int		key_gen(int keycode, t_data *data);
-void	move_player(t_data *data);
 void	get_player_pos(t_data *data);
 void	move_player(t_data *data);
 void	move_player1(t_data *data);
@@ -92,7 +98,7 @@ void	move_player3(t_data *data);
 void	coin_count(t_data *data);
 void	get_door_pos(t_data *data);
 void	change_door(t_data *data);
-void	put_map(char *map);
+void	put_map(char **map);
 void	player_pos2(t_vdata *data);
 void	path_set(t_vdata *data);
 void	path_set0(t_vdata *data);
@@ -107,8 +113,11 @@ void	move_pd1(t_data *data);
 void	move_pd2(t_data *data);
 void	move_pd3(t_data *data);
 void	win_init(t_data *data);
-void	check_square(char **str);
+void	check_square(char **str, t_data *data);
 void	check_other(t_data *data);
-void	error_write(void);
+void	error_write1(void);
+void	error_write0(t_data *data);
+int		wide_c(char **s);
+void	free_map(char **str);
 
 #endif
