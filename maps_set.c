@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 17:13:31 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 22:44:48 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	my_check4(char **s, int len)
 	}
 	if (a.l < 1)
 	{
-		free_map(s);
+		free_ma(s);
 		error_write1();
 	}
 }

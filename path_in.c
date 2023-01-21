@@ -6,11 +6,12 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:40:48 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 21:59:03 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 22:42:18 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void	put_map(char **str)
 {
 	t_vdata	*data;
@@ -20,17 +21,11 @@ void	put_map(char **str)
 	path_set(data);
 	path_set1(data);
 	path_set2(data);
-	int i;
-	i = 0;
 	path_final(data);
 	path_final(data);
 	check_exit(data);
-	while(data->str[i])
-	{
-		printf("%s\n", data->str[i]);
-		i++;
-	}
 }
+
 void	player_pos2(t_vdata *data)
 {
 	data->i = 1;

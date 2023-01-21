@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:07:53 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 21:56:38 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 22:08:41 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ int	key_gen(int keycode, t_data *data)
 
 void	img_set(t_data *data)
 {
-	data->img
-		= mlx_xpm_file_to_image(data->mlx, "textures/1.xpm", &data->w, &data->h);
-	data->img1
-		= mlx_xpm_file_to_image(data->mlx, "textures/0.xpm", &data->w, &data->h);
-	data->img2
-		= mlx_xpm_file_to_image(data->mlx, "textures/PR.xpm", &data->w, &data->h);
-	data->img3
-		= mlx_xpm_file_to_image(data->mlx, "textures/C.xpm", &data->w, &data->h);
-	data->img4
-		= mlx_xpm_file_to_image(data->mlx, "textures/E.xpm", &data->w, &data->h);
+	data->img = mlx_xpm_file_to_image
+		(data->mlx, "textures/1.xpm", &data->w, &data->h);
+	data->img1 = mlx_xpm_file_to_image
+		(data->mlx, "textures/0.xpm", &data->w, &data->h);
+	data->img2 = mlx_xpm_file_to_image
+		(data->mlx, "textures/PR.xpm", &data->w, &data->h);
+	data->img3 = mlx_xpm_file_to_image
+		(data->mlx, "textures/C.xpm", &data->w, &data->h);
+	data->img4 = mlx_xpm_file_to_image
+		(data->mlx, "textures/E.xpm", &data->w, &data->h);
 }
 
 void	img_put(t_data *a)

@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 23:26:02 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 21:31:40 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 22:40:49 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	move_pd(t_data *data)
 		data->str[data->player_x][data->player_y] = '0';
 		data->str[data->player_x + 1][data->player_y] = 'P';
 		data->img2 = mlx_xpm_file_to_image
-			(data->mlx, "textures/player_down+door.xpm", &data->w, &data->h);
+			(data->mlx, "textures/player_d+d.xpm", &data->w, &data->h);
 	}
 }
 
@@ -86,7 +86,7 @@ void	move_pd2(t_data *data)
 		data->str[data->player_x][data->player_y] = '0';
 		data->str[data->player_x][data->player_y + 1] = 'P';
 		data->img2 = mlx_xpm_file_to_image
-			(data->mlx, "textures/player_right+door.xpm", &data->w, &data->h);
+			(data->mlx, "textures/player_r+d.xpm", &data->w, &data->h);
 	}
 }
 
@@ -112,6 +112,6 @@ void	move_pd3(t_data *data)
 		data->str[data->player_x][data->player_y] = '0';
 		data->str[data->player_x][data->player_y - 1] = 'P';
 		data->img2 = mlx_xpm_file_to_image
-			(data->mlx, "textures/player_left+door.xpm", &data->w, &data->h);
+			(data->mlx, "textures/player_l+d.xpm", &data->w, &data->h);
 	}
 }

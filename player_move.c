@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:27 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 21:31:45 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/21 22:38:09 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	move_player(t_data *data)
 		if (data->str[data->player_x][data->player_y] ==
 			data->str[data->exit_x][data->exit_y])
 		data->img2 = mlx_xpm_file_to_image
-				(data->mlx, "textures/player_down+door.xpm", &data->w, &data->h);
+				(data->mlx, "textures/player_d+d.xpm", &data->w, &data->h);
 		else
 		data->img2 = mlx_xpm_file_to_image
 				(data->mlx, "textures/PD.xpm", &data->w, &data->h);
@@ -79,7 +79,7 @@ void	move_player2(t_data *data)
 		if (data->str[data->player_x][data->player_y] ==
 			data->str[data->exit_x][data->exit_y])
 			data->img2 = mlx_xpm_file_to_image
-				(data->mlx, "textures/player_right+door.xpm", &data->w, &data->h);
+				(data->mlx, "textures/player_r+d.xpm", &data->w, &data->h);
 		else
 		data->img2 = mlx_xpm_file_to_image
 				(data->mlx, "textures/PR.xpm", &data->w, &data->h);
@@ -108,7 +108,7 @@ void	move_player3(t_data *data)
 		if (data->str[data->player_x][data->player_y] ==
 			data->str[data->exit_x][data->exit_y])
 			data->img2 = mlx_xpm_file_to_image
-				(data->mlx, "textures/player_left+door.xpm", &data->w, &data->h);
+				(data->mlx, "textures/player_l+d.xpm", &data->w, &data->h);
 		else
 		data->img2 = mlx_xpm_file_to_image
 				(data->mlx, "textures/PL.xpm", &data->w, &data->h);
