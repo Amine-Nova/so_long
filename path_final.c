@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 18:26:50 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 21:49:09 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/22 15:47:30 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	check_exit(t_vdata *data)
 			{
 				while (data->str[i])
 					free(data->str[i++]);
-				error_write1();
+				error_write1("Error\nInvalid Path\n");
 			}
 			j++;
 		}

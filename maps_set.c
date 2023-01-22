@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:16:25 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 22:44:48 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:07:09 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ void	my_check(char **s, int len)
 			else
 			{
 				free_map(s);
-				error_write1();
+				error_write1("Error\nFirst line or Last line (1)\n");
 			}
 		}
 		a.i++;
 	}
+	my_check0(s, len);
+	my_check2(s, len);
+	my_check3(s, len);
+	my_check4(s, len);
 }
 
 void	my_check0(char **s, int len)
@@ -48,7 +52,7 @@ void	my_check0(char **s, int len)
 		else
 		{
 			free_map(s);
-			error_write1();
+			error_write1("Error\nFirst or Last(1)\n");
 		}
 	}
 }
@@ -76,7 +80,7 @@ void	my_check2(char **s, int len)
 	if (a.l != 1)
 	{
 		free_map(s);
-		error_write1();
+		error_write1("Error\nProbleme(E)\n");
 	}
 }
 
@@ -103,7 +107,7 @@ void	my_check3(char **s, int len)
 	if (a.l != 1)
 	{
 		free_map(s);
-		error_write1();
+		error_write1("Error\nProbleme(P)\n");
 	}
 }
 
@@ -129,7 +133,7 @@ void	my_check4(char **s, int len)
 	}
 	if (a.l < 1)
 	{
-		free_ma(s);
-		error_write1();
+		free_map(s);
+		error_write1("Error\nProbleme(C)\n");
 	}
 }

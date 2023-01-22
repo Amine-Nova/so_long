@@ -6,20 +6,21 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:39:44 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 19:19:55 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:08:09 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	error_write1(void)
+void	error_write1(char *s)
 {
-	write(2, "Error\n", 6);
+	ft_printf("%s", s);
 	exit(1);
 }
 
-void	error_write0(t_data *data)
+int	error_write0(t_data *data)
 {
+	free_map(data->str);
 	mlx_destroy_image(data->mlx, data->img);
 	mlx_destroy_image(data->mlx, data->img1);
 	mlx_destroy_image(data->mlx, data->img2);
@@ -28,6 +29,7 @@ void	error_write0(t_data *data)
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	free(data->mlx);
 	exit(0);
+	return (0);
 }
 
 void	check_other(t_data *data)
@@ -46,7 +48,7 @@ void	check_other(t_data *data)
 			&& data->str[i][j] != 'P')
 			{
 				free_map(data->str);
-				error_write1();
+				error_write1("Error\nThere is a difference caractere");
 			}
 			j++;
 		}

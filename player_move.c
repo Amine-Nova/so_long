@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:27 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 22:38:09 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/22 11:20:47 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	move_player(t_data *data)
 	move_pd(data);
 	if (data->str[data->player_x][data->player_y] == 'P')
 	{
-		data->counter++;
 		data->str[data->player_x][data->player_y] = '0';
 		data->str[data->player_x + 1][data->player_y] = 'P';
 		data->img2 = mlx_xpm_file_to_image
 			(data->mlx, "textures/PD.xpm", &data->w, &data->h);
 	}
+	ft_printf("Move : %d\n", data->counter++);
 	change_door(data);
 	img_put(data);
 }
@@ -60,12 +60,12 @@ void	move_player1(t_data *data)
 	move_pd1(data);
 	if (data->str[data->player_x][data->player_y] == 'P')
 	{
-		data->counter++;
 		data->str[data->player_x][data->player_y] = '0';
 		data->str[data->player_x - 1][data->player_y] = 'P';
 		data->img2 = mlx_xpm_file_to_image
 			(data->mlx, "textures/PU.xpm", &data->w, &data->h);
 	}
+	ft_printf("Move : %d\n", data->counter++);
 	change_door(data);
 	img_put(data);
 }
@@ -89,12 +89,12 @@ void	move_player2(t_data *data)
 	move_pd2(data);
 	if (data->str[data->player_x][data->player_y] == 'P')
 	{
-		data->counter++;
 		data->str[data->player_x][data->player_y] = '0';
 		data->str[data->player_x][data->player_y + 1] = 'P';
 		data->img2 = mlx_xpm_file_to_image
 			(data->mlx, "textures/PR.xpm", &data->w, &data->h);
 	}
+	ft_printf("Move : %d\n", data->counter++);
 	change_door(data);
 	img_put(data);
 }
@@ -118,12 +118,12 @@ void	move_player3(t_data *data)
 	move_pd3(data);
 	if (data->str[data->player_x][data->player_y] == 'P')
 	{
-		data->counter++;
 		data->str[data->player_x][data->player_y] = '0';
 		data->str[data->player_x][data->player_y - 1] = 'P';
 		data->img2 = mlx_xpm_file_to_image
 			(data->mlx, "textures/PL.xpm", &data->w, &data->h);
 	}
+	ft_printf("Move : %d\n", data->counter++);
 	change_door(data);
 	img_put(data);
 }

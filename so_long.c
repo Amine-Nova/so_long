@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 23:59:47 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 21:56:51 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:25:48 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	win_init(t_data *data)
 		data->h++;
 	data->h = data->h * 50;
 	data->mlx = mlx_init();
-	data->mlx_win = mlx_new_window(data->mlx, data->w, data->h, "iceburg");
+	data->mlx_win = mlx_new_window(data->mlx, data->w, data->h, "so_long");
 	get_player_pos(data);
 	img_set(data);
 	img_put(data);
@@ -73,28 +73,29 @@ void	win_init(t_data *data)
 
 void	map_check(t_data *data, char *map)
 {
-	data->counter = 0;
+	data->counter = 1;
 	data->n = 0;
 	data->str0 = NULL;
 	data->fd = open(map, O_RDONLY);
+	if (data->fd == -1)
+		error_write1("Error\nMap Invalid\n");
 	data->line = get_next_line(data->fd);
-	while (data->line)
+	if (!data->line)
+		error_write1("Error\nEmpty Map\n");
+	while (data->line && data->n++ >= 0)
 	{
-		data->n++;
 		data->str0 = my_strjoin(data->str0, data->line);
 		free(data->line);
 		data->line = get_next_line(data->fd);
 	}
+	if (data->str0[ft_strlen(data->str0) - 1] == '\n'
+		&& data->str0[ft_strlen(data->str0)] == 0)
+		error_write1("Error\nInvalid Map\n");
 	data->str = ft_split(data->str0, '\n');
 	data->ptr = ft_split(data->str0, '\n');
-	data->b = 0;
-	data->a = ft_strlen(data->str[data->b]);
+	data->a = ft_strlen(data->str[0]);
 	check_other(data);
 	my_check(data->str, data->a);
-	my_check0(data->str, data->a);
-	my_check2(data->str, data->a);
-	my_check3(data->str, data->a);
-	my_check4(data->str, data->a);
 	check_square(data->str, data);
 }
 
@@ -108,13 +109,13 @@ void	check_square(char **str, t_data *data)
 		if (ft_strlen(str[0]) != ft_strlen(str[i]))
 		{
 			free_map(str);
-			error_write1();
+			error_write1("Error\nLines not Equal\n");
 		}
 		i++;
 	}
 	if (data->n != i)
 	{
 		free_map(str);
-		error_write1();
+		error_write1("Error\nNew Line Error\n");
 	}
 }

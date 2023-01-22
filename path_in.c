@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:40:48 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 22:42:18 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/22 12:56:28 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	put_map(char **str)
 	path_set(data);
 	path_set1(data);
 	path_set2(data);
+	path_final(data);
 	path_final(data);
 	path_final(data);
 	check_exit(data);

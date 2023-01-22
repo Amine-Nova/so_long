@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 21:55:34 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/22 15:49:44 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct p_data
 	char	**ptr;
 	char	**str;
 	char	*line;
-	int		fd;
 	int		i;
 	int		j;	
 	int		player2_x;
@@ -62,7 +61,6 @@ typedef struct s_data
 	int		w;
 	int		i;
 	int		a;
-	int		b;
 	int		fd;
 	int		j;
 	int		c;
@@ -115,9 +113,11 @@ void	move_pd3(t_data *data);
 void	win_init(t_data *data);
 void	check_square(char **str, t_data *data);
 void	check_other(t_data *data);
-void	error_write1(void);
-void	error_write0(t_data *data);
+void	error_write1(char *s);
+int		error_write0(t_data *data);
 int		wide_c(char **s);
 void	free_map(char **str);
+void	error_image(t_data *data);
+int		ft_cmp(char *s1, char *s2, int len);
 
 #endif

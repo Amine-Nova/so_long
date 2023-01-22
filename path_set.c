@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:28:05 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/21 22:38:37 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/22 11:35:16 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	path_set0(t_vdata *data)
 {
+	player_pos2(data);
 	while (data->str[data->player2_x][data->player2_y + 1] != '1')
 	{
 		if (data->str[data->player2_x][data->player2_y + 1] != '1')
