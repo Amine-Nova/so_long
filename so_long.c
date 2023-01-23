@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 23:59:47 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/22 16:25:48 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:38:09 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,21 +73,20 @@ void	win_init(t_data *data)
 
 void	map_check(t_data *data, char *map)
 {
-	data->counter = 1;
-	data->n = 0;
 	data->str0 = NULL;
 	data->fd = open(map, O_RDONLY);
 	if (data->fd == -1)
-		error_write1("Error\nMap Invalid\n");
+		exit(1);
 	data->line = get_next_line(data->fd);
 	if (!data->line)
-		error_write1("Error\nEmpty Map\n");
+		error_file(data);
 	while (data->line && data->n++ >= 0)
 	{
 		data->str0 = my_strjoin(data->str0, data->line);
 		free(data->line);
 		data->line = get_next_line(data->fd);
 	}
+	close(data->fd);
 	if (data->str0[ft_strlen(data->str0) - 1] == '\n'
 		&& data->str0[ft_strlen(data->str0)] == 0)
 		error_write1("Error\nInvalid Map\n");
@@ -96,7 +95,6 @@ void	map_check(t_data *data, char *map)
 	data->a = ft_strlen(data->str[0]);
 	check_other(data);
 	my_check(data->str, data->a);
-	check_square(data->str, data);
 }
 
 void	check_square(char **str, t_data *data)

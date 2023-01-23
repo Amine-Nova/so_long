@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:07:53 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/22 16:08:23 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:16:27 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	key_gen(int keycode, t_data *data)
 {
 	change_door(data);
-	if (keycode == 124)
+	if (keycode == 2)
 		move_player2(data);
 	if (keycode == 53)
 	{
@@ -29,11 +29,11 @@ int	key_gen(int keycode, t_data *data)
 		free(data->mlx);
 		exit(1);
 	}
-	if (keycode == 123)
+	if (keycode == 0)
 		move_player3(data);
-	if (keycode == 125)
+	if (keycode == 1)
 		move_player(data);
-	if (keycode == 126)
+	if (keycode == 13)
 		move_player1(data);
 	return (0);
 }
@@ -50,12 +50,7 @@ void	img_set(t_data *data)
 		(data->mlx, "textures/C.xpm", &data->w, &data->h);
 	data->img4 = mlx_xpm_file_to_image
 		(data->mlx, "textures/E.xpm", &data->w, &data->h);
-}
-
-void	error_image(t_data *data)
-{
-	if (!data->img || !data->img1 || !data->img2 || !data->img3 || !data->img4)
-		error_write1("Error\nImage not Found\n");
+	img_set1(data);
 }
 
 int	ft_cmp(char *s1, char *s2, int len)
@@ -90,8 +85,7 @@ void	img_put(t_data *a)
 		a->j = -1;
 		while (a->str[a->i][++a->j])
 		{
-			if (a->str[a->i][a->j] == '0' || a->str[a->i][a->j] == 'P'
-				|| a->str[a->i][a->j] == 'E' || a->str[a->i][a->j] == 'C')
+			if (a->str[a->i][a->j] == '0' || a->str[a->i][a->j] == 'P')
 				mlx_put_image_to_window(a->mlx, a->mlx_win,
 					a->img1, a->j * 50, a->i * 50);
 			if (a->str[a->i][a->j] == 'P')

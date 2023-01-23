@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:40:48 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/22 12:56:28 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:18:52 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	put_map(char **str)
 
 	data->str = str;
 	player_pos2(data);
+	path_set0(data);
 	path_set(data);
 	path_set1(data);
 	path_set2(data);

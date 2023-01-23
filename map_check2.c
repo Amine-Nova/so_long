@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:39:44 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/22 16:08:09 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:14:55 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	error_write1(char *s)
 
 int	error_write0(t_data *data)
 {
-	free_map(data->str);
 	mlx_destroy_image(data->mlx, data->img);
 	mlx_destroy_image(data->mlx, data->img1);
 	mlx_destroy_image(data->mlx, data->img2);
@@ -28,8 +27,18 @@ int	error_write0(t_data *data)
 	mlx_destroy_image(data->mlx, data->img4);
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	free(data->mlx);
+	free_map(data->str);
 	exit(0);
 	return (0);
+}
+
+void	exit_image(t_data *data, char *s)
+{
+	mlx_destroy_window(data->mlx, data->mlx_win);
+	free(data->mlx);
+	free_map(data->str);
+	ft_printf("%s", s);
+	exit(1);
 }
 
 void	check_other(t_data *data)
@@ -54,6 +63,7 @@ void	check_other(t_data *data)
 		}
 		i++;
 	}
+	check_square(data->str, data);
 }
 
 void	change_door(t_data *data)

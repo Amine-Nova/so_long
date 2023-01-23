@@ -6,7 +6,7 @@
 /*   By: abenmous <abenmous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:06:31 by abenmous          #+#    #+#             */
-/*   Updated: 2023/01/22 15:49:44 by abenmous         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:38:18 by abenmous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,9 @@ int		wide_c(char **s);
 void	free_map(char **str);
 void	error_image(t_data *data);
 int		ft_cmp(char *s1, char *s2, int len);
-
+void	exit_image(t_data *data, char *s);
+void	error_file(t_data *data);
+void	img_set2(t_data *data);
+void	img_set1(t_data *data);
+void	error_image2(t_data *data);
 #endif
